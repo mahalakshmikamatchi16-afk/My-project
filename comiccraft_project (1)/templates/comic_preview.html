@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Layout Preview Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #f8fafc; margin: 0; padding: 30px 15px; }
+        .navbar-top { text-align: center; margin-bottom: 40px; }
+        .dashboard-container { max-width: 750px; margin: 0 auto; }
+        .frame-box { background: #ffffff; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); padding: 20px; margin-bottom: 35px; border: 1px solid #e2e8f0; }
+        .frame-heading { font-size: 18px; font-weight: bold; color: #1e3a8a; margin-bottom: 12px; }
+        .frame-canvas { width: 100%; height: auto; border-radius: 8px; border: 3px solid #1e293b; }
+        .desc-text { font-style: italic; color: #475569; margin: 10px 0; font-size: 13.5px; }
+        .transcript-text { background: #f8fafc; padding: 14px; border-left: 5px solid #3b82f6; font-size: 15px; line-height: 1.5; white-space: pre-line; }
+        .action-link { display: inline-block; background-color: #059669; color: white; padding: 12px 28px; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3); }
+        .action-link:hover { background-color: #047857; }
+    </style>
+</head>
+<body>
+    <div class="navbar-top">
+        <h1>✨ AI Render Sequence Results</h1>
+        <a href="/export-success?pdf_path={{ pdf_path }}" class="action-link">Confirm & Compile Comic PDF</a>
+    </div>
+    <div class="dashboard-container">
+        {% for card in layout %}
+        <div class="frame-box">
+            <div class="frame-heading">Frame Layer {{ card.panel }}: {{ card.title }}</div>
+            <img class="frame-canvas" src="{{ card.image_path }}" alt="Visual Render Node Content Image">
+            <div class="desc-text"><strong>Model Prompt Direction:</strong> {{ card.scene_description }}</div>
+            <div class="transcript-text">{{ card.text }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

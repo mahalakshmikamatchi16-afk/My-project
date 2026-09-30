@@ -1,0 +1,1 @@
+# ComicCraft initialization file

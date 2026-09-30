@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicCraft Workspace</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 { margin-top: 0; text-align: center; color: #1e3a8a; font-size: 28px; }
+        .input-block { margin-bottom: 18px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; color: #334155; }
+        input[type="text"], textarea, select {
+            width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 14px;
+        }
+        textarea { height: 90px; resize: none; }
+        .btn-submit {
+            width: 100%; padding: 12px; background-color: #2563eb; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background 0.2s ease;
+        }
+        .btn-submit:hover { background-color: #1d4ed8; }
+    </style>
+</head>
+<body>
+    <div class="form-card">
+        <h1>🖋️ ComicCraft Studio</h1>
+        <form action="/generate" method="POST">
+            <div class="input-block">
+                <label for="prompt">Story Narrative Concept Idea:</label>
+                <textarea id="prompt" name="prompt" placeholder="Describe the overarching sequence events..." required></textarea>
+            </div>
+            <div class="input-block">
+                <label for="character_name">Protagonist Hero Name:</label>
+                <input type="text" id="character_name" name="character_name" placeholder="Ex: Captain Cosmic" required>
+            </div>
+            <div class="input-block">
+                <label for="setting">Thematic Setting Environment:</label>
+                <select id="setting" name="setting">
+                    <option value="Space Station Outpost">Space Station Outpost</option>
+                    <option value="Enchanted Old Growth Forest">Enchanted Old Growth Forest</option>
+                    <option value="Cyberpunk City Alleyways">Cyberpunk City Alleyways</option>
+                    <option value="Submerged Underwater Vault">Submerged Underwater Vault</option>
+                </select>
+            </div>
+            <div class="input-block">
+                <label for="tone">Structural Mood Tone Matrix:</label>
+                <select id="tone" name="tone">
+                    <option value="Suspenseful Noir">Suspenseful Noir</option>
+                    <option value="Lighthearted Whimsical">Lighthearted Whimsical</option>
+                    <option value="Epic Dramatic Melodrama">Epic Dramatic Melodrama</option>
+                    <option value="Comedic Satire">Comedic Satire</option>
+                </select>
+            </div>
+            <div class="input-block">
+                <label for="style">Visual Art Rendition Pipeline Style:</label>
+                <select id="style" name="style">
+                    <option value="Retro Comic Book Print">Retro Comic Book Print</option>
+                    <option value="Classic Japanese Cel Anime">Classic Japanese Cel Anime</option>
+                    <option value="Gritty High Contrast Graphic Novel">Gritty High Contrast Graphic Novel</option>
+                    <option value="16-Bit Pixel Art Matte Painting">16-Bit Pixel Art Matte Painting</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-submit">Launch Pipeline Workflow</button>
+        </form>
+    </div>
+</body>
+</html>
